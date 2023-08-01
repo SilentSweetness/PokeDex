@@ -1,15 +1,21 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import styled from 'styled-components';
+import togepi from './togepi.json'
+
+const Img = styled.img
+` height: 200px;
+  border: 2px solid #000000;
+  margin: 20px;
+  `
 
 function App() {
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState({});
   const [isInitialized, setIsInitialized] = useState();
   const [pokemonSprite, setPokemonSprite] = useState();
-
-  const Img = styled.img`
-  height: 50px,
-  `
+  const [pokemonName, setPokemonName] = useState();
+  const [selectedId, setSelectedId] = useState(null);
+  const [pokemonType, setPokemonType] = useState();
 
   const getPokemon = async () => {
     try {
@@ -23,33 +29,54 @@ function App() {
 
       console.log(data.sprites.front_default)
       setPokemonSprite(data.sprites.front_default)
+      setPokemonName(data.name)
 
     } catch (error) {
       console.log(error);
     }
   };
 
-
-  // I managed to get this working for you <3
-  // You did everything right, and your code works
-  // "useEffect" just needed to be added to the import. That's why it was undefined.
   useEffect(() => {
     if (!isInitialized) {
-      getPokemon();
+      // getPokemon();
+      setPokemon(togepi)
+      setPokemonSprite(togepi.sprites.front_default)
+      setSelectedId(togepi.id)
+      setPokemonType(togepi.types.name)
 
       setIsInitialized(true);
     }
   }, [pokemon, isInitialized])
 
+  if (isInitialized && !pokemon) {
+    return null;
+  }
+
+  const handleClick = (id) => {
+    setSelectedId(id !== selectedId ? id : null)
+  }
+
   return (
     <div>
      <h1>PokeDex</h1>
      {pokemonSprite && isInitialized && (
-      <Img src={pokemonSprite} alt="front default togepi" />
+      <Img src={pokemonSprite} alt={`front default ${pokemon.name}`} />
      )}
+     <h2>{pokemon.name} {pokemon.id} {pokemon.types}</h2>
+     
     </div>
   );
 }
 
 
 export default App;
+
+
+/*
+{questions.map((question) => (
+    <div key={question.id} onClick={() => handleClick(question.id)}
+    className={question.id === selectedId ? "selected" : ""}>
+      <p>{question.id === selectedId ? question.answer : question.question}</p>
+      </div>
+      ))}
+      */
