@@ -11,8 +11,6 @@ function App() {
   height: 50px,
   `
 
-  // Some change
-
   const getPokemon = async () => {
     try {
       const response = await axios.get('https://pokeapi.co/api/v2/pokemon/togepi');
