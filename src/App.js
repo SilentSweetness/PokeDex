@@ -9,13 +9,23 @@ const Img = styled.img
   margin: 20px;
   `
 
+//test
+const questions = [
+  {
+    id: 175,
+    question: "Name?",
+    answer: "Togepi",
+    ask: "Type?",
+    type: "Fairy"
+  }]
+
 function App() {
   const [pokemon, setPokemon] = useState({});
   const [isInitialized, setIsInitialized] = useState();
   const [pokemonSprite, setPokemonSprite] = useState();
   const [pokemonName, setPokemonName] = useState();
-  const [selectedId, setSelectedId] = useState(null);
-  const [pokemonType, setPokemonType] = useState();
+  const [selectedNameId, setSelectedNameId] = useState(null);
+  const [selectedTypeId, setSelectedTypeId] = useState(null);
 
   const getPokemon = async () => {
     try {
@@ -41,8 +51,6 @@ function App() {
       // getPokemon();
       setPokemon(togepi)
       setPokemonSprite(togepi.sprites.front_default)
-      setSelectedId(togepi.id)
-      setPokemonType(togepi.types.name)
 
       setIsInitialized(true);
     }
@@ -52,8 +60,12 @@ function App() {
     return null;
   }
 
-  const handleClick = (id) => {
-    setSelectedId(id !== selectedId ? id : null)
+  const handleNameClick = (id) => {
+    setSelectedNameId(id !== selectedNameId ? id : null)
+  }
+
+  const handleTypeClick = (id) => {
+    setSelectedTypeId(id !== selectedTypeId ? id : null)
   }
 
   return (
@@ -62,8 +74,22 @@ function App() {
      {pokemonSprite && isInitialized && (
       <Img src={pokemonSprite} alt={`front default ${pokemon.name}`} />
      )}
-     <h2>{pokemon.name} {pokemon.id} {pokemon.types}</h2>
-     
+     <div className="flashcards">
+    {questions.map((question) => (
+    <div key={question.id} onClick={() => handleNameClick(question.id)}
+    className={question.id === selectedNameId ? "selected" : ""}>
+      <p>{question.id === selectedNameId ? question.answer : question.question}</p>
+      </div>
+      ))}
+  </div>
+  <div className="flashcards">
+    {questions.map((ask) => (
+    <div key={ask.id} onClick={() => handleTypeClick(ask.id)}
+    className={ask.id === selectedTypeId ? "selected" : ""}>
+      <p>{ask.id === selectedTypeId ? ask.type : ask.ask}</p>
+      </div>
+      ))}
+  </div>
     </div>
   );
 }
@@ -71,12 +97,3 @@ function App() {
 
 export default App;
 
-
-/*
-{questions.map((question) => (
-    <div key={question.id} onClick={() => handleClick(question.id)}
-    className={question.id === selectedId ? "selected" : ""}>
-      <p>{question.id === selectedId ? question.answer : question.question}</p>
-      </div>
-      ))}
-      */
