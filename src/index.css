@@ -13,16 +13,18 @@ h1 {
 
 p {
   margin: 0px 20px;
+  font-weight: bold;
+  font-size: larger;
 }
 
 .body {
   background: linear-gradient(to right, white, rgb(253, 113, 113));
   height: 100vh;
+  width: 100vw;
 }
 
 footer {
   padding: 40px 20px;
   position: fixed;
   bottom: 0;
-  
 }

@@ -10,7 +10,15 @@ const questions = [
     id: 175,
     question: "Name and type?",
     answer: "Togepi is a fairy type"
-  }]
+  },
+  /* test, use for later
+  {
+    id: 32,
+    question: "Name and type?",
+    answer: "Abra is a psychic type"    
+  }
+  */
+]
 
 function App() {
   const [pokemon, setPokemon] = useState({});
