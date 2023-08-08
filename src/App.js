@@ -2,21 +2,14 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import styled from 'styled-components';
 import togepi from './togepi.json'
-
-const Img = styled.img
-` height: 200px;
-  border: 2px solid #000000;
-  margin: 20px;
-  `
+import "./index.css";
 
 //test
 const questions = [
   {
     id: 175,
-    question: "Name?",
-    answer: "Togepi",
-    ask: "Type?",
-    type: "Fairy"
+    question: "Name and type?",
+    answer: "Togepi is a fairy type"
   }]
 
 function App() {
@@ -24,8 +17,7 @@ function App() {
   const [isInitialized, setIsInitialized] = useState();
   const [pokemonSprite, setPokemonSprite] = useState();
   const [pokemonName, setPokemonName] = useState();
-  const [selectedNameId, setSelectedNameId] = useState(null);
-  const [selectedTypeId, setSelectedTypeId] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
 
   const getPokemon = async () => {
     try {
@@ -60,36 +52,25 @@ function App() {
     return null;
   }
 
-  const handleNameClick = (id) => {
-    setSelectedNameId(id !== selectedNameId ? id : null)
-  }
-
-  const handleTypeClick = (id) => {
-    setSelectedTypeId(id !== selectedTypeId ? id : null)
+  const handleClick = (id) => {
+    setSelectedId(id !== selectedId ? id : null)
   }
 
   return (
-    <div>
-     <h1>PokeDex</h1>
+    <div className="body">
+     <h1>PokeDex Quiz</h1>
      {pokemonSprite && isInitialized && (
-      <Img src={pokemonSprite} alt={`front default ${pokemon.name}`} />
+      <img src={pokemonSprite} alt={`front default ${pokemon.name}`} className="sprite" />
      )}
      <div className="flashcards">
     {questions.map((question) => (
-    <div key={question.id} onClick={() => handleNameClick(question.id)}
-    className={question.id === selectedNameId ? "selected" : ""}>
-      <p>{question.id === selectedNameId ? question.answer : question.question}</p>
+    <div key={question.id} onClick={() => handleClick(question.id)}
+    className={question.id === selectedId ? "selected" : ""}>
+      <p>{question.id === selectedId ? question.answer : question.question}</p>
       </div>
       ))}
   </div>
-  <div className="flashcards">
-    {questions.map((ask) => (
-    <div key={ask.id} onClick={() => handleTypeClick(ask.id)}
-    className={ask.id === selectedTypeId ? "selected" : ""}>
-      <p>{ask.id === selectedTypeId ? ask.type : ask.ask}</p>
-      </div>
-      ))}
-  </div>
+  <footer>My first collaborated react app.</footer>
     </div>
   );
 }
