@@ -20,7 +20,24 @@ const questions = [
   */
 ]
 
-function App() {
+function App () {
+  return (
+    <div className="app">
+        <Header />
+        <Quiz />
+        <Footer />
+    </div>
+);
+}
+
+const Header = () => {
+  return (
+    <h1>Pokedex</h1>
+  )
+}
+
+
+const Quiz = () => {
   const [pokemon, setPokemon] = useState({});
   const [isInitialized, setIsInitialized] = useState();
   const [pokemonSprite, setPokemonSprite] = useState();
@@ -66,7 +83,6 @@ function App() {
 
   return (
     <div className="body">
-     <h1>PokeDex Quiz</h1>
      {pokemonSprite && isInitialized && (
       <img src={pokemonSprite} alt={`front default ${pokemon.name}`} className="sprite" />
      )}
@@ -78,11 +94,15 @@ function App() {
       </div>
       ))}
   </div>
-  <footer>My first collaborated react app.</footer>
     </div>
   );
 }
 
+const Footer = () => {
+  return (
+    <footer>My first collaborated react app.</footer>
+  )
+}
 
 export default App;
 
