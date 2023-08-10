@@ -26,6 +26,6 @@ p {
 
 footer {
   padding: 40px 20px;
-  position: fixed;
-  bottom: 0;
+  background: linear-gradient(to right, white, rgb(253, 113, 113));
+  width: 100vw;
 }
