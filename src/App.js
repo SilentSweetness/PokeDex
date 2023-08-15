@@ -126,7 +126,7 @@ const Quiz = ({ pokemonUrl }) => {
      {pokemonSprite && isInitialized && (
       <img src={pokemonSprite} alt={`front default ${pokemon.name}`} className="sprite" />
      )}
-     <div>
+     <div className="flashcards">
     {questions.map((question) => (
     <div key={question.id} onClick={() => handleClick(question.id)}
     className={question.id === selectedId ? "selected" : ""}>
@@ -145,4 +145,3 @@ const Footer = () => {
 }
 
 export default App;
-
