@@ -1,20 +1,20 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
-import togepi from './togepi.json'
+//import togepi from './togepi.json'
 import "./index.css";
-import abra from './abra.json'
+//import abra from './abra.json'
 
 //test
 const questions = [
   {
-    id: `${togepi.id}`,
+    id: "175",
     question: "Name and type?",
-    answer: `Togepi (${togepi.id}) is a fairy type.`
+    answer: "Togepi (175) is a fairy type"
   },
   {
-    id: `${abra.id}`,
+    id: "63",
     question: "Name and type?",
-    answer: `Abra (${abra.id}) is a psychic type`  
+    answer: "Abra (63) is a psychic type"
   }
 ]
 
