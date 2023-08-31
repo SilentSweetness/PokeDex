@@ -1,6 +1,6 @@
 export default function Footer () {
     return (
-      <footer>My first collaborated react app.</footer>
+      <footer>I hope you enjoyed my fun Pokemon quiz made in React.</footer>
     )
   }
   
