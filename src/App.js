@@ -1,19 +1,20 @@
-import axios from 'axios';
-import { useState, useEffect } from "react";
-//import togepi from './togepi.json'
+import { useState } from "react";
 import "./index.css";
-//import abra from './abra.json'
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-//test
+//import abra from './abra.json'
+//import togepi from './togepi.json'
+
 const questions = [
   {
-    id: "175",
-    question: "Name and type?",
+    id: 175,
+    question: "Togepi",
     answer: "Togepi (175) is a fairy type"
   },
   {
-    id: "63",
-    question: "Name and type?",
+    id: 63,
+    question: "Abra",
     answer: "Abra (63) is a psychic type"
   }
 ]
@@ -22,126 +23,44 @@ function App () {
   return (
     <div className="app">
         <Header />
-        <QuizContainer />
+        <QuizContainer data={questions} />
         <Footer />
     </div>
 );
 }
 
-const Header = () => {
-  return (
-    <h1>Pokedex</h1>
-  )
-}
-
-const QuizContainer = () => {
-  const [pokemonList, setPokemonList] = useState([])
-  const [isInitialized, setIsInitialized] = useState();
-
-  const getPokemon = async () => {
-    try {
-      const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0');
-      console.log(response);
-      // For whatever reason the response.json() doesn't work anymore. So I've changed it to use response.data
-      const data = await response.data;
-      console.log(data.results);
-      
-      setPokemonList(data.results)
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    if (!isInitialized) {
-      getPokemon();
-
-      setIsInitialized(true);
-    }
-  }, [pokemonList, isInitialized])
-
-  if (isInitialized && !pokemonList) {
-    return null;
-  }
-  return (
-    <div>
-      {pokemonList.map(pokemon => {
-        return (
-          <div>
-            <Quiz pokemonUrl={pokemon.url} />
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
-
-
-const Quiz = ({ pokemonUrl }) => {
-  const [pokemon, setPokemon] = useState({});
-  const [isInitialized, setIsInitialized] = useState();
-  const [pokemonSprite, setPokemonSprite] = useState();
-  const [pokemonName, setPokemonName] = useState();
-  const [selectedId, setSelectedId] = useState(null);
-
-  const getPokemon = async () => {
-    try {
-      const response = await axios.get(pokemonUrl);
-      console.log(response);
-      // For whatever reason the response.json() doesn't work anymore. So I've changed it to use response.data
-      const data = await response.data;
-      console.log(data);
-      
-      setPokemon(data);
-
-      console.log(data.sprites.front_default)
-      setPokemonSprite(data.sprites.front_default)
-      setPokemonName(data.name)
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    if (!isInitialized) {
-      getPokemon();
-
-      setIsInitialized(true);
-    }
-  }, [pokemon, isInitialized])
-
-  if (isInitialized && !pokemon) {
-    return null;
-  }
-
-  const handleClick = (id) => {
-    setSelectedId(id !== selectedId ? id : null)
-  }
+function QuizContainer({ data }) {
+  const [curOpen, setCurOpen] = useState(null);
 
   return (
-    <div className="body">
-     {pokemonSprite && isInitialized && (
-      <img src={pokemonSprite} alt={`front default ${pokemon.name}`} className="sprite" />
-     )}
-     <div className="flashcards">
-    {questions.map((question) => (
-    <div key={question.id} onClick={() => handleClick(question.id)}
-    className={question.id === selectedId ? "selected" : ""}>
-      <p>{question.id === selectedId ? question.answer : question.question}</p>
-      </div>
+  <div className='accordion'>
+    {data.map((el, i)=> (
+      <AccordionItem 
+      curOpen={curOpen} 
+      onOpen={setCurOpen} 
+      title={el.question}  
+      num={i} 
+      key={el.title}>
+      {el.answer}  
+      </AccordionItem>
       ))}
   </div>
-    </div>
-  );
+  )
 }
 
-const Footer = () => {
-  return (
-    <footer>My first collaborated react app.</footer>
-  )
+const AccordionItem = ({num, title, curOpen, onOpen, children}) => {
+  const isOpen = num === curOpen;
+
+const handleToggle = () => {
+  onOpen(isOpen ? null : num);
+};
+
+  return <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
+    <p className='number'>{num < 9 ? `00${num + 1}` : num + 1}</p>
+    <p className='title'>What is {title}'s type? What is the evolution line?</p>
+    <p className='icon'>{isOpen ? "-" : "+"}</p>
+    {isOpen && <div className='content-box'>{children}</div>}
+  </div>
 }
 
 export default App;
