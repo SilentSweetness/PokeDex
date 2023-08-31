@@ -27,10 +27,10 @@ function QuizContainer({ data }) {
   };
   
     return <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
-      <p className='number'>{num < 9 ? `00${num}` : num + 1}</p>
+      <p className='number'>{num}</p>
       <p className='title'>What is {title}'s type?</p>
       <p className='icon'>{isOpen ? "-" : "+"}</p>
-      {isOpen && <div className='content-box'>{children}</div>}
+      {isOpen && <div className='content-box'>{title} is a {children} type.</div>}
     </div>
   }
   
