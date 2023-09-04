@@ -99,6 +99,106 @@ const questions = [
         question: "Raticate",
         answer: "normal"
       },
+      {
+        id: '021',
+        question: "Spearow",
+        answer: "normal and flying"
+      },
+      {
+        id: '022',
+        question: "Fearow",
+        answer: "normal and flying"
+      },
+      {
+        id: '023',
+        question: "Ekans",
+        answer: "poison"
+      },
+      {
+        id: '024',
+        question: "Arbok",
+        answer: "poison"
+      },
+      {
+        id: '025',
+        question: "Pickachu",
+        answer: "electric"
+      },
+      {
+        id: '026',
+        question: "Raichu",
+        answer: "electric"
+      },
+      {
+        id: '027',
+        question: "Sandshrew",
+        answer: "ground"
+      },
+      {
+        id: '028',
+        question: "Sandslash",
+        answer: "ground"
+      },
+      {
+        id: '029',
+        question: "Nidoran ♀",
+        answer: "poison"
+      },
+      {
+        id: '030',
+        question: "Nidorina",
+        answer: "poison"
+      },
+      {
+        id: '031',
+        question: "Nidoqueen",
+        answer: "poison and ground"
+      },
+      {
+        id: '032',
+        question: "Nidoran ♂",
+        answer: "poison"
+      },
+      {
+        id: '033',
+        question: "Nidorino",
+        answer: "poison"
+      },
+      {
+        id: '034',
+        question: "Nidoking",
+        answer: "poison and ground"
+      },
+      {
+        id: '035',
+        question: "Clefairy",
+        answer: "fairy"
+      },
+      {
+        id: '036',
+        question: "Clefable",
+        answer: "fairy"
+      },
+      {
+        id: '037',
+        question: "Vulpix",
+        answer: "fire"
+      },
+      {
+        id: '038',
+        question: "Ninetales",
+        answer: "fire"
+      },
+      {
+        id: '039',
+        question: "Jigglypuff",
+        answer: "normal and fairy"
+      },
+      {
+        id: '040',
+        question: "Wigglytuff",
+        answer: "normal and fairy"
+      },
   ]
 
   export default questions;
