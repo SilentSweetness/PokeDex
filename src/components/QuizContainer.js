@@ -4,7 +4,7 @@ function QuizContainer({ data }) {
     const [curOpen, setCurOpen] = useState(null);
   
     return (
-    <div className='accordion'>
+    <div className='container'>
       {data.map((el)=> (
         <PokemonItem 
         curOpen={curOpen} 

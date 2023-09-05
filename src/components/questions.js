@@ -199,6 +199,106 @@ const questions = [
         question: "Wigglytuff",
         answer: "normal and fairy"
       },
+      {
+        id: '041',
+        question: "Zubat",
+        answer: "poison and flying"
+      },
+      {
+        id: '042',
+        question: "Golbat",
+        answer: "poison and flying"
+      },
+      {
+        id: '043',
+        question: "Oddish",
+        answer: "grass and poison"
+      },
+      {
+        id: '044',
+        question: "Gloom",
+        answer: "grass and poison"
+      },
+      {
+        id: '045',
+        question: "Vileplume",
+        answer: "grass and poison"
+      },
+      {
+        id: '046',
+        question: "Para",
+        answer: "bug and grass"
+      },
+      {
+        id: '047',
+        question: "Parasect",
+        answer: "bug and grass"
+      },
+      {
+        id: '048',
+        question: "Venonat",
+        answer: "bug and poison"
+      },
+      {
+        id: '049',
+        question: "Venomoth",
+        answer: "bug and poison"
+      },
+      {
+        id: '050',
+        question: "Diglett",
+        answer: "ground"
+      },
+      {
+        id: '051',
+        question: "Dugtrio",
+        answer: "ground"
+      },
+      {
+        id: '052',
+        question: "Meowth",
+        answer: "normal"
+      },
+      {
+        id: '053',
+        question: "Persian",
+        answer: "normal"
+      },
+      {
+        id: '054',
+        question: "Psyduck",
+        answer: "water"
+      },
+      {
+        id: '055',
+        question: "Golduck",
+        answer: "water"
+      },
+      {
+        id: '056',
+        question: "Mankey",
+        answer: "fighting"
+      },
+      {
+        id: '057',
+        question: "Primeape",
+        answer: "fighting"
+      },
+      {
+        id: '058',
+        question: "Growlithe",
+        answer: "fire"
+      },
+      {
+        id: '059',
+        question: "Arcanine",
+        answer: "fire"
+      },
+      {
+        id: '060',
+        question: "Poliwag",
+        answer: "water"
+      },
   ]
 
   export default questions;

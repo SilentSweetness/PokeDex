@@ -1,10 +1,5 @@
-.sprite {
-  border: 2px solid black;
-  height: 200px;
-  margin: 20px;
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
+* {
+  margin: 0;
 }
 
 h1 {
@@ -20,14 +15,22 @@ p {
   font-size: larger;
 }
 
-.body {
-  background: linear-gradient(to right, white, rgb(253, 113, 113));
-  height: 100vh;
-  width: 100vw;
-}
-
 footer {
   padding: 40px 20px;
   background: linear-gradient(to right, white, rgb(253, 113, 113));
   width: 100vw;
+}
+
+.container {
+  background: linear-gradient(to right, white, rgb(253, 113, 113));
+  display: grid;
+  grid-template-columns: repeat(3, 30% [col-start]);
+  grid-template-rows: auto;
+  justify-content: space-between;
+}
+
+.item {
+  background-color: white;
+  margin: 20px;
+  border: 2px solid black;
 }
