@@ -299,6 +299,106 @@ const questions = [
         question: "Poliwag",
         answer: "water"
       },
+      {
+        id: '061',
+        question: "Poliwhirl",
+        answer: "water"
+      },
+      {
+        id: '062',
+        question: "Poliwrath",
+        answer: "water and fighting"
+      },
+      {
+        id: '063',
+        question: "Abra",
+        answer: "psychic"
+      },
+      {
+        id: '064',
+        question: "Kadabra",
+        answer: "psychic"
+      },
+      {
+        id: '065',
+        question: "Alakazam",
+        answer: "psychic"
+      },
+      {
+        id: '066',
+        question: "Machop",
+        answer: "fighting"
+      },
+      {
+        id: '067',
+        question: "Machoke",
+        answer: "fighting"
+      },
+      {
+        id: '068',
+        question: "Machamp",
+        answer: "fighting"
+      },
+      {
+        id: '069',
+        question: "Bellsprout",
+        answer: "grass and poison"
+      },
+      {
+        id: '070',
+        question: "Weepinbell",
+        answer: "grass and poison"
+      },
+      {
+        id: '071',
+        question: "Victreebel",
+        answer: "grass and poison"
+      },
+      {
+        id: '072',
+        question: "Tentacool",
+        answer: "water and poison"
+      },
+      {
+        id: '073',
+        question: "Tentacruel",
+        answer: "water and poison"
+      },
+      {
+        id: '074',
+        question: "Geodude",
+        answer: "rock and ground"
+      },
+      {
+        id: '075',
+        question: "Graveler",
+        answer: "rock and ground"
+      },
+      {
+        id: '076',
+        question: "Golem",
+        answer: "rock and ground"
+      },
+      {
+        id: '077',
+        question: "Ponyta",
+        answer: "fire"
+      },
+      {
+        id: '078',
+        question: "Rapidash",
+        answer: "fire"
+      },
+      {
+        id: '079',
+        question: "Slowpoke",
+        answer: "water and psychic"
+      },
+      {
+        id: '080',
+        question: "Slowbro",
+        answer: "water and psychic"
+      },
   ]
 
   export default questions;
